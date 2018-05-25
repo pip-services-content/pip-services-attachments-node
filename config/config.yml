@@ -84,3 +84,13 @@
 
 # Prometheus metrics service
 - descriptor: "pip-services:metrics-service:prometheus:default:1.0"
+
+############## Infrastructure components ##############
+
+# Blobs components
+- descriptor: "pip-services-blobs:client:s3:default:*"
+  connection:
+    arn: "{{{AWS_BLOBS_ARN}}}"
+  credential:
+    access_id: "{{{AWS_ACCESS_ID}}}"
+    access_key: "{{{AWS_ACCESS_KEY}}}"
