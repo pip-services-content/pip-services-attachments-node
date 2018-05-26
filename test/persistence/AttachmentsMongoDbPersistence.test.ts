@@ -10,10 +10,6 @@ suite('AttachmentsMongoDbPersistence', ()=> {
     let fixture: AttachmentsPersistenceFixture;
 
     setup((done) => {
-<<<<<<< HEAD
-        let config = YamlConfigReader.readConfig(null, './config/test_connections.yml', null);
-        let dbConfig = config.getSection('mongodb');
-=======
         var MONGO_DB = process.env["MONGO_DB"] || "test";
         var MONGO_COLLECTION = process.env["MONGO_COLLECTION"] || "attachments";
         var MONGO_SERVICE_HOST = process.env["MONGO_SERVICE_HOST"] || "localhost";
@@ -27,7 +23,6 @@ suite('AttachmentsMongoDbPersistence', ()=> {
             "connection.port", MONGO_SERVICE_PORT,
             "connection.uri", MONGO_SERVICE_URI
         );
->>>>>>> c9366608932e4368a22dd0314d4541da567c4f64
 
         persistence = new AttachmentsMongoDbPersistence();
         persistence.configure(dbConfig);
