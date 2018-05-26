@@ -156,7 +156,7 @@ export class AttachmentsController implements IConfigurable, IReferenceable, ICo
         callback?: (err: any, attachment: BlobAttachmentV1) => void): void {
         this._persistence.deleteById(correlationId, id, (err, attachment) => {
             if (err == null && this._blobsClient != null) {
-                this._blobsClient.deleteBlobById(correlationId, id, (err, blob) => {
+                this._blobsClient.deleteBlobById(correlationId, id, (err) => {
                     if (callback) callback(err, attachment);
                 })
             } else if (callback) callback(err, attachment);

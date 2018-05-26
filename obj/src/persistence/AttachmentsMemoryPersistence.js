@@ -10,6 +10,9 @@ class AttachmentsMemoryPersistence extends pip_services_data_node_1.Identifiable
     addReference(correlationId, id, reference, callback) {
         let item = _.find(this._items, (x) => x.id == id);
         if (item != null) {
+            item.references = _.filter(item.references, (r) => {
+                return !(r.id == reference.id && r.type == reference.type);
+            });
             item.references.push(reference);
         }
         else {
@@ -26,13 +29,11 @@ class AttachmentsMemoryPersistence extends pip_services_data_node_1.Identifiable
         let item = _.find(this._items, (x) => x.id == id);
         let removed = false;
         if (item != null) {
-            let index = _.findIndex(item.references, (r) => {
-                return r.id == reference.id && r.type == reference.type;
+            let oldLength = item.references.length;
+            item.references = _.filter(item.references, (r) => {
+                return !(r.id == reference.id && r.type == reference.type);
             });
-            if (index >= 0) {
-                item.references.splice(index, 1);
-                removed = true;
-            }
+            removed = item.references.length != oldLength;
         }
         if (removed) {
             this._logger.trace(correlationId, "Removed reference to %s", id);

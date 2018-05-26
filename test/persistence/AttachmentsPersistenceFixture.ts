@@ -72,7 +72,7 @@ export class AttachmentsPersistenceFixture {
                         assert.isNull(err);
 
                         assert.isObject(item);
-                        assert.lengthOf(item.references, 3);
+                        assert.lengthOf(item.references, 2);
 
                         callback();
                     }
@@ -87,7 +87,7 @@ export class AttachmentsPersistenceFixture {
                         assert.isNull(err);
                         
                         assert.isObject(item);
-                        assert.lengthOf(item.references, 3);
+                        assert.lengthOf(item.references, 2);
 
                         callback();
                     }
@@ -107,7 +107,7 @@ export class AttachmentsPersistenceFixture {
                         assert.isNull(err);
 
                         assert.isObject(item);
-                        assert.lengthOf(item.references, 2);
+                        assert.lengthOf(item.references, 1);
 
                         callback();
                     }
@@ -127,7 +127,7 @@ export class AttachmentsPersistenceFixture {
                         assert.isNull(err);
 
                         assert.isObject(item);
-                        assert.lengthOf(item.references, 1);
+                        assert.lengthOf(item.references, 0);
 
                         callback();
                     }
@@ -142,7 +142,7 @@ export class AttachmentsPersistenceFixture {
                         assert.isNull(err);
 
                         assert.isObject(item);
-                        assert.lengthOf(item.references, 1);
+                        assert.lengthOf(item.references, 0);
 
                         callback();
                     }

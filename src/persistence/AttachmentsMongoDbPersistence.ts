@@ -3,7 +3,7 @@ let _ = require('lodash');
 import { FilterParams } from 'pip-services-commons-node';
 import { PagingParams } from 'pip-services-commons-node';
 import { DataPage } from 'pip-services-commons-node';
-import { IdentifiableMongoDbPersistence } from 'pip-services-data-node';
+import { IdentifiableMongoDbPersistence } from 'pip-services-oss-node';
 
 import { ReferenceV1 } from '../data/version1/ReferenceV1';
 import { BlobAttachmentV1 } from '../data/version1/BlobAttachmentV1';
@@ -26,7 +26,7 @@ export class AttachmentsMongoDbPersistence
         };
 
         let data = {
-            $push: { 
+            $addToSet: { 
                 references: { 
                     id: reference.id,
                     type: reference.type,
@@ -59,7 +59,7 @@ export class AttachmentsMongoDbPersistence
         };
 
         let data = {
-            $pop: { 
+            $pull: { 
                 references: { 
                     id: reference.id,
                     type: reference.type

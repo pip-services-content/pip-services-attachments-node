@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
-const pip_services_data_node_1 = require("pip-services-data-node");
+const pip_services_oss_node_1 = require("pip-services-oss-node");
 const BlobAttachmentMongoDbSchema_1 = require("./BlobAttachmentMongoDbSchema");
-class AttachmentsMongoDbPersistence extends pip_services_data_node_1.IdentifiableMongoDbPersistence {
+class AttachmentsMongoDbPersistence extends pip_services_oss_node_1.IdentifiableMongoDbPersistence {
     constructor() {
         super('attachments', BlobAttachmentMongoDbSchema_1.BlobAttachmentMongoDbSchema());
     }
@@ -12,7 +12,7 @@ class AttachmentsMongoDbPersistence extends pip_services_data_node_1.Identifiabl
             _id: id
         };
         let data = {
-            $push: {
+            $addToSet: {
                 references: {
                     id: reference.id,
                     type: reference.type,
@@ -38,7 +38,7 @@ class AttachmentsMongoDbPersistence extends pip_services_data_node_1.Identifiabl
             _id: id
         };
         let data = {
-            $pop: {
+            $pull: {
                 references: {
                     id: reference.id,
                     type: reference.type
