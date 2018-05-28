@@ -88,9 +88,11 @@
 ############## Infrastructure components ##############
 
 # Blobs components
+{{#if AWS_BLOBS_ARN}}{{#if AWS_ACCESS_ID}}{{#if AWS_ACCESS_KEY}}
 - descriptor: "pip-services-blobs:client:s3:default:*"
   connection:
     arn: "{{{AWS_BLOBS_ARN}}}"
   credential:
     access_id: "{{{AWS_ACCESS_ID}}}"
     access_key: "{{{AWS_ACCESS_KEY}}}"
+{{/if}}{{/if}}{{/if}}
