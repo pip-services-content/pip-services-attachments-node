@@ -3,7 +3,7 @@ let _ = require('lodash');
 import { FilterParams } from 'pip-services-commons-node';
 import { PagingParams } from 'pip-services-commons-node';
 import { DataPage } from 'pip-services-commons-node';
-import { IdentifiableMongoDbPersistence } from 'pip-services-oss-node';
+import { IdentifiableMongoDbPersistence } from 'pip-services-mongodb-node';
 
 import { ReferenceV1 } from '../data/version1/ReferenceV1';
 import { BlobAttachmentV1 } from '../data/version1/BlobAttachmentV1';

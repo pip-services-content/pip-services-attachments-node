@@ -1,13 +1,7 @@
 /node_modules
 /npm-debug.log
 /.idea
-<<<<<<< HEAD
-/config/config.yml
-/config/test_connections.yml
 /data/attachments.test.json
-=======
-/data/Attachments.test.json
->>>>>>> c9366608932e4368a22dd0314d4541da567c4f64
 /data/attachments.json
 /obj/test
 /docker/id_rsa*

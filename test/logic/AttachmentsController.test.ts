@@ -5,8 +5,8 @@ let assert = require('chai').assert;
 import { Descriptor } from 'pip-services-commons-node';
 import { ConfigParams } from 'pip-services-commons-node';
 import { References } from 'pip-services-commons-node';
-import { ConsoleLogger } from 'pip-services-commons-node';
-import { SenecaInstance } from 'pip-services-net-node';
+import { ConsoleLogger } from 'pip-services-components-node';
+import { SenecaInstance } from 'pip-services-seneca-node';
 
 import { BlobAttachmentV1 } from '../../src/data/version1/BlobAttachmentV1';
 import { ReferenceV1 } from '../../src/data/version1/ReferenceV1';
@@ -25,7 +25,7 @@ suite('AttachmentsController', ()=> {
         let logger = new ConsoleLogger();
 
         let references: References = References.fromTuples(
-            new Descriptor('pip-services-commons', 'logger', 'console', 'default', '1.0'), logger,
+            new Descriptor('pip-services', 'logger', 'console', 'default', '1.0'), logger,
             new Descriptor('pip-services-attachments', 'persistence', 'memory', 'default', '1.0'), persistence,
             new Descriptor('pip-services-attachments', 'controller', 'default', 'default', '1.0'), controller
         );
