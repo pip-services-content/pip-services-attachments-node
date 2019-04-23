@@ -1,4 +1,4 @@
-import { IGetter } from 'pip-services-data-node';
+import { IGetter } from 'pip-services3-data-node';
 import { BlobAttachmentV1 } from '../data/version1/BlobAttachmentV1';
 import { ReferenceV1 } from '../data/version1/ReferenceV1';
 export interface IAttachmentsPersistence extends IGetter<BlobAttachmentV1, string> {

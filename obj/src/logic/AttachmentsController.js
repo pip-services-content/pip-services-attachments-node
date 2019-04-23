@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
 let async = require('async');
-const pip_services_commons_node_1 = require("pip-services-commons-node");
-const pip_services_commons_node_2 = require("pip-services-commons-node");
+const pip_services3_commons_node_1 = require("pip-services3-commons-node");
+const pip_services3_commons_node_2 = require("pip-services3-commons-node");
 const AttachmentsCommandSet_1 = require("./AttachmentsCommandSet");
 class AttachmentsController {
     constructor() {
-        this._dependencyResolver = new pip_services_commons_node_2.DependencyResolver(AttachmentsController._defaultConfig);
+        this._dependencyResolver = new pip_services3_commons_node_2.DependencyResolver(AttachmentsController._defaultConfig);
     }
     configure(config) {
         this._dependencyResolver.configure(config);
@@ -120,6 +120,6 @@ class AttachmentsController {
         });
     }
 }
-AttachmentsController._defaultConfig = pip_services_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-attachments:persistence:*:*:1.0', 'dependencies.blobs', 'pip-services-blos:client:*:*:1.0');
+AttachmentsController._defaultConfig = pip_services3_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-attachments:persistence:*:*:1.0', 'dependencies.blobs', 'pip-services-blos:client:*:*:1.0');
 exports.AttachmentsController = AttachmentsController;
 //# sourceMappingURL=AttachmentsController.js.map

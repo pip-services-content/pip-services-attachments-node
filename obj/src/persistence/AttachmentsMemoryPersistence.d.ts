@@ -1,4 +1,4 @@
-import { IdentifiableMemoryPersistence } from 'pip-services-data-node';
+import { IdentifiableMemoryPersistence } from 'pip-services3-data-node';
 import { ReferenceV1 } from '../data/version1/ReferenceV1';
 import { BlobAttachmentV1 } from '../data/version1/BlobAttachmentV1';
 import { IAttachmentsPersistence } from './IAttachmentsPersistence';

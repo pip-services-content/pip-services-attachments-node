@@ -3,9 +3,9 @@ let async = require('async');
 let restify = require('restify');
 let assert = require('chai').assert;
 
-import { ConfigParams } from 'pip-services-commons-node';
-import { Descriptor } from 'pip-services-commons-node';
-import { References } from 'pip-services-commons-node';
+import { ConfigParams } from 'pip-services3-commons-node';
+import { Descriptor } from 'pip-services3-commons-node';
+import { References } from 'pip-services3-commons-node';
 
 import { BlobAttachmentV1 } from '../../../src/data/version1/BlobAttachmentV1';
 import { ReferenceV1 } from '../../../src/data/version1/ReferenceV1';

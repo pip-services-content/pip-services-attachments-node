@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
-const pip_services_data_node_1 = require("pip-services-data-node");
+const pip_services3_data_node_1 = require("pip-services3-data-node");
 const BlobAttachmentV1_1 = require("../data/version1/BlobAttachmentV1");
-class AttachmentsMemoryPersistence extends pip_services_data_node_1.IdentifiableMemoryPersistence {
+class AttachmentsMemoryPersistence extends pip_services3_data_node_1.IdentifiableMemoryPersistence {
     constructor() {
         super();
     }

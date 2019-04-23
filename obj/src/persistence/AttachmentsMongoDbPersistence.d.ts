@@ -1,4 +1,4 @@
-import { IdentifiableMongoDbPersistence } from 'pip-services-mongodb-node';
+import { IdentifiableMongoDbPersistence } from 'pip-services3-mongodb-node';
 import { ReferenceV1 } from '../data/version1/ReferenceV1';
 import { BlobAttachmentV1 } from '../data/version1/BlobAttachmentV1';
 import { IAttachmentsPersistence } from './IAttachmentsPersistence';
