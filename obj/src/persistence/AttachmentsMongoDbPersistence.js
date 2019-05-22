@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
-const pip_services3_mongodb_node_1 = require("pip-services3-mongodb-node");
-const BlobAttachmentMongoDbSchema_1 = require("./BlobAttachmentMongoDbSchema");
-class AttachmentsMongoDbPersistence extends pip_services3_mongodb_node_1.IdentifiableMongoDbPersistence {
+const pip_services3_mongoose_node_1 = require("pip-services3-mongoose-node");
+const BlobAttachmentMongooseSchema_1 = require("./BlobAttachmentMongooseSchema");
+class AttachmentsMongoDbPersistence extends pip_services3_mongoose_node_1.IdentifiableMongoosePersistence {
     constructor() {
-        super('attachments', BlobAttachmentMongoDbSchema_1.BlobAttachmentMongoDbSchema());
+        super('attachments', BlobAttachmentMongooseSchema_1.BlobAttachmentMongooseSchema());
     }
     addReference(correlationId, id, reference, callback) {
         let filter = {

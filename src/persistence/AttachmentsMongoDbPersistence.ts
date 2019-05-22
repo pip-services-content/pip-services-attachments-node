@@ -3,19 +3,19 @@ let _ = require('lodash');
 import { FilterParams } from 'pip-services3-commons-node';
 import { PagingParams } from 'pip-services3-commons-node';
 import { DataPage } from 'pip-services3-commons-node';
-import { IdentifiableMongoDbPersistence } from 'pip-services3-mongodb-node';
+import { IdentifiableMongoosePersistence } from 'pip-services3-mongoose-node';
 
 import { ReferenceV1 } from '../data/version1/ReferenceV1';
 import { BlobAttachmentV1 } from '../data/version1/BlobAttachmentV1';
 import { IAttachmentsPersistence } from './IAttachmentsPersistence';
-import { BlobAttachmentMongoDbSchema } from './BlobAttachmentMongoDbSchema';
+import { BlobAttachmentMongooseSchema } from './BlobAttachmentMongooseSchema';
 
 export class AttachmentsMongoDbPersistence 
-    extends IdentifiableMongoDbPersistence<BlobAttachmentV1, string> 
+    extends IdentifiableMongoosePersistence<BlobAttachmentV1, string> 
     implements IAttachmentsPersistence {
 
     constructor() {
-        super('attachments', BlobAttachmentMongoDbSchema());
+        super('attachments', BlobAttachmentMongooseSchema());
     }
 
     public addReference(correlationId: string, id: string, reference: ReferenceV1, 
