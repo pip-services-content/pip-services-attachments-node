@@ -1,8 +1,8 @@
 {
     "name": "pip-services-attachments-node",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "Conceptual Vision Consulting LLC",
-    "description": "Event logging microservice in Node.js",
+    "description": "Blob attachments microservice in Node.js",
     "contributors": [
         {
             "name": "Sergey Seroukhov",
@@ -13,8 +13,8 @@
     "typings": "./obj/src/index.d.ts",
     "keywords": [
         "pip.services",
-        "event",
-        "logging"
+        "blobs",
+        "attachments"
     ],
     "noAnalyze": true,
     "repository": {
@@ -43,8 +43,8 @@
         "pip-services3-data-node": "^3.0.0",
         "pip-services3-aws-node": "^3.0.0",
         "pip-services3-rpc-node": "^3.0.0",
-        "pip-services3-mongoose-node": "^3.0.0",
-        "pip-clients-blobs-node": "git+ssh://git@github.com:pip-services-infrastructure/pip-clients-blobs-node.git"
+        "pip-services3-mongodb-node": "^3.0.0",
+        "pip-clients-blobs-node": "^1.0.1"
     },
     "devDependencies": {
         "@types/node": "*",
@@ -53,10 +53,8 @@
         "@types/chai": "*",
         "@types/mocha": "*",
         "@types/mongodb": "^2.1.38",
-        "@types/mongoose": "^4.7.4",
         "restify": "^4.3.0",
         "chai": "*",
-        "matcha": "*",
         "mocha": "*"
     }
 }

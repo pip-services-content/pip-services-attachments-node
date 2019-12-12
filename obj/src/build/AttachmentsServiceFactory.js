@@ -17,11 +17,11 @@ class AttachmentsServiceFactory extends pip_services3_components_node_1.Factory 
         this.registerAsType(AttachmentsServiceFactory.HttpServiceDescriptor, AttachmentsHttpServiceV1_1.AttachmentsHttpServiceV1);
     }
 }
+exports.AttachmentsServiceFactory = AttachmentsServiceFactory;
 AttachmentsServiceFactory.Descriptor = new pip_services3_commons_node_1.Descriptor("pip-services-attachments", "factory", "default", "default", "1.0");
 AttachmentsServiceFactory.MemoryPersistenceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-attachments", "persistence", "memory", "*", "1.0");
 AttachmentsServiceFactory.FilePersistenceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-attachments", "persistence", "file", "*", "1.0");
 AttachmentsServiceFactory.MongoDbPersistenceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-attachments", "persistence", "mongodb", "*", "1.0");
 AttachmentsServiceFactory.ControllerDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-attachments", "controller", "default", "*", "1.0");
 AttachmentsServiceFactory.HttpServiceDescriptor = new pip_services3_commons_node_1.Descriptor("pip-services-attachments", "service", "http", "*", "1.0");
-exports.AttachmentsServiceFactory = AttachmentsServiceFactory;
 //# sourceMappingURL=AttachmentsServiceFactory.js.map

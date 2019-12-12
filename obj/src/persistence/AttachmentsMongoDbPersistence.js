@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 let _ = require('lodash');
-const pip_services3_mongoose_node_1 = require("pip-services3-mongoose-node");
-const BlobAttachmentMongooseSchema_1 = require("./BlobAttachmentMongooseSchema");
-class AttachmentsMongoDbPersistence extends pip_services3_mongoose_node_1.IdentifiableMongoosePersistence {
+const pip_services3_mongodb_node_1 = require("pip-services3-mongodb-node");
+class AttachmentsMongoDbPersistence extends pip_services3_mongodb_node_1.IdentifiableMongoDbPersistence {
     constructor() {
-        super('attachments', BlobAttachmentMongooseSchema_1.BlobAttachmentMongooseSchema());
+        super('attachments');
     }
     addReference(correlationId, id, reference, callback) {
         let filter = {
@@ -21,16 +20,16 @@ class AttachmentsMongoDbPersistence extends pip_services3_mongoose_node_1.Identi
             }
         };
         let options = {
-            new: true,
+            returnOriginal: false,
+            returnNewDocument: true,
             upsert: true
         };
-        this._model.findOneAndUpdate(filter, data, options, (err, newItem) => {
-            if (err != null)
+        this._collection.findOneAndUpdate(filter, data, options, (err, result) => {
+            let newItem = result ? this.convertToPublic(result.value) : null;
+            if (err != null && newItem != null)
                 this._logger.trace(correlationId, "Added reference in %s to id = %s", this._collection, id);
-            if (callback) {
-                newItem = this.convertToPublic(newItem);
+            if (callback)
                 callback(err, newItem);
-            }
         });
     }
     removeReference(correlationId, id, reference, callback) {
@@ -46,15 +45,15 @@ class AttachmentsMongoDbPersistence extends pip_services3_mongoose_node_1.Identi
             }
         };
         let options = {
-            new: true
+            returnOriginal: false,
+            returnNewDocument: true
         };
-        this._model.findOneAndUpdate(filter, data, options, (err, newItem) => {
+        this._collection.findOneAndUpdate(filter, data, options, (err, result) => {
+            let newItem = result ? this.convertToPublic(result.value) : null;
             if (err != null && newItem != null)
                 this._logger.trace(correlationId, "Removed reference in %s from id = %s", this._collection, id);
-            if (callback) {
-                newItem = this.convertToPublic(newItem);
+            if (callback)
                 callback(err, newItem);
-            }
         });
     }
 }

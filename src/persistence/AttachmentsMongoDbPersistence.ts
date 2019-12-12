@@ -1,21 +1,17 @@
 let _ = require('lodash');
 
-import { FilterParams } from 'pip-services3-commons-node';
-import { PagingParams } from 'pip-services3-commons-node';
-import { DataPage } from 'pip-services3-commons-node';
-import { IdentifiableMongoosePersistence } from 'pip-services3-mongoose-node';
+import { IdentifiableMongoDbPersistence } from 'pip-services3-mongodb-node';
 
 import { ReferenceV1 } from '../data/version1/ReferenceV1';
 import { BlobAttachmentV1 } from '../data/version1/BlobAttachmentV1';
 import { IAttachmentsPersistence } from './IAttachmentsPersistence';
-import { BlobAttachmentMongooseSchema } from './BlobAttachmentMongooseSchema';
 
 export class AttachmentsMongoDbPersistence 
-    extends IdentifiableMongoosePersistence<BlobAttachmentV1, string> 
+    extends IdentifiableMongoDbPersistence<BlobAttachmentV1, string> 
     implements IAttachmentsPersistence {
 
     constructor() {
-        super('attachments', BlobAttachmentMongooseSchema());
+        super('attachments');
     }
 
     public addReference(correlationId: string, id: string, reference: ReferenceV1, 
@@ -36,18 +32,17 @@ export class AttachmentsMongoDbPersistence
         }
 
         let options = {
-            new: true,
+            returnOriginal: false,
+            returnNewDocument: true,
             upsert: true
         };
         
-        this._model.findOneAndUpdate(filter, data, options, (err, newItem) => {
-            if (err != null)
+        this._collection.findOneAndUpdate(filter, data, options, (err, result) => {
+            let newItem = result ? this.convertToPublic(result.value) : null;
+            if (err != null && newItem != null)
                 this._logger.trace(correlationId, "Added reference in %s to id = %s", this._collection, id);
            
-            if (callback) {
-                newItem = this.convertToPublic(newItem);
-                callback(err, newItem);
-            }
+            if (callback) callback(err, newItem);
         });
     }
 
@@ -68,17 +63,16 @@ export class AttachmentsMongoDbPersistence
         }
 
         let options = {
-            new: true
+            returnOriginal: false,
+            returnNewDocument: true
         };
         
-        this._model.findOneAndUpdate(filter, data, options, (err, newItem) => {
+        this._collection.findOneAndUpdate(filter, data, options, (err, result) => {
+            let newItem = result ? this.convertToPublic(result.value) : null;
             if (err != null && newItem != null)
                 this._logger.trace(correlationId, "Removed reference in %s from id = %s", this._collection, id);
            
-            if (callback) {
-                newItem = this.convertToPublic(newItem);
-                callback(err, newItem);
-            }
+            if (callback) callback(err, newItem);
         });
     }
     

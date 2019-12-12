@@ -120,6 +120,6 @@ class AttachmentsController {
         });
     }
 }
-AttachmentsController._defaultConfig = pip_services3_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-attachments:persistence:*:*:1.0', 'dependencies.blobs', 'pip-services-blos:client:*:*:1.0');
 exports.AttachmentsController = AttachmentsController;
+AttachmentsController._defaultConfig = pip_services3_commons_node_1.ConfigParams.fromTuples('dependencies.persistence', 'pip-services-attachments:persistence:*:*:1.0', 'dependencies.blobs', 'pip-services-blos:client:*:*:1.0');
 //# sourceMappingURL=AttachmentsController.js.map
